@@ -1,14 +1,9 @@
 @Feature
-Feature: Login to Yahoo
+Feature: Alchemy main page validations
 
-Scenario: This is First Scenario
-	Given open Yahoo
-	When Login to Yahoo
+Scenario: This scenario validates the Login functionality
+	Given open Alchemy
+	When Login to Alchemy
 	Then Login Successful
-	
-#Scenario: This is Second Scenario
-#	Given open Yahoo
-#	When Login to Yahoo
-#	Then Login Successful
 	
 

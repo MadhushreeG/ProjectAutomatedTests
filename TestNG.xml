@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="2" name="TestAutomastionSuite" parallel="tests">
+<suite thread-count="2" name="AutomationSuite" parallel="tests">
   <test thread-count="2" name="Test7" parallel="tests">
-    <parameter name="BrowserName" value="Chrome"/>
+    <parameter name="BrowserName" value="Firefox"/>
     <parameter name="Port" value="4723"/>
     <parameter name="deviceName" value="192.168.28.101"/>
     <parameter name="bootstrapport" value="4724"/>
@@ -19,4 +19,4 @@
       <class name="com.cucumber.Test.TestRunnerA"/>
     </classes>
   </test> <!-- Test6 -->
-</suite> <!-- TestAutomastionSuite -->
+</suite> <!-- AutomationSuite -->

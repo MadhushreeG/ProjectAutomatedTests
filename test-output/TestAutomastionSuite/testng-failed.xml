@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" name="Failed suite [TestAutomastionSuite]" parallel="tests">
+  <test thread-count="2" name="Test6(failed)" parallel="tests">
+    <parameter name="BrowserName" value="Chrome"/>
+    <parameter name="Port" value="4723"/>
+    <parameter name="deviceName" value="192.168.28.101"/>
+    <parameter name="bootstrapport" value="4724"/>
+    <classes>
+      <class name="com.cucumber.Test.TestRunnerA">
+        <methods>
+          <include name="setUpClass"/>
+          <include name="feature" invocation-numbers="0"/>
+          <include name="InitializeTest"/>
+          <include name="afterMethod"/>
+          <include name="tearDownClass"/>
+        </methods>
+      </class> <!-- com.cucumber.Test.TestRunnerA -->
+    </classes>
+  </test> <!-- Test6(failed) -->
+  <test thread-count="2" name="Test7(failed)" parallel="tests">
+    <parameter name="BrowserName" value="Firefox"/>
+    <parameter name="Port" value="4723"/>
+    <parameter name="deviceName" value="192.168.28.101"/>
+    <parameter name="bootstrapport" value="4724"/>
+    <classes>
+      <class name="com.cucumber.Test.TestRunnerB">
+        <methods>
+          <include name="setUpClass"/>
+          <include name="feature" invocation-numbers="0"/>
+          <include name="InitializeTest"/>
+          <include name="tearDownClass"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- com.cucumber.Test.TestRunnerB -->
+    </classes>
+  </test> <!-- Test7(failed) -->
+</suite> <!-- Failed suite [TestAutomastionSuite] -->

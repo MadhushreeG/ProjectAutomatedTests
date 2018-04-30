@@ -8,8 +8,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
-import com.cucumber.listener.ExtentProperties;
-
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import frameworkcore.webdriverFactory.DriverManager;
@@ -19,19 +17,11 @@ import frameworkcore.webdriverFactory.DriverManager;
 (features={"src/test/resources/Features/cucumbertest2.feature"},
 glue={"com.cucumber.TestSteps"},
 tags = {},
-
 //dryRun = true,
-
-//plugin = { "html:Reporting/CucumberReports/cucumber-html-reportA",
-//      "json:Reporting/CucumberReports/cucumberA.json", "pretty:Reporting/CucumberReports/cucumber-prettyA.txt",
-//      "usage:Reporting/CucumberReports/cucumber-usageA.json", "junit:Reporting/CucumberReports/cucumber-resultsA.xml" }
-//)
-
-//plugin = {"com.cucumber.listener.ExtentCucumberFormatter:Reporting/CucumberReports/reportA.html"}
-//)
-
-plugin = {"com.cucumber.listener.ExtentCucumberFormatter:"}
+plugin = { "html:Reporting/CucumberReports/CucumberReportRunnerB",
+      "com.cucumber.listener.ExtentCucumberFormatter:Reporting/CucumberReports/ExtentReportB.html"}
 )
+
 
 	public class TestRunnerB extends AbstractTestNGCucumberTests {
 	
@@ -41,8 +31,6 @@ plugin = {"com.cucumber.listener.ExtentCucumberFormatter:"}
 	public static void InitializeTest( String BrowserName) throws InvocationTargetException, IllegalAccessException{
 		
 		logger.info("Inside RunnerB class");
-		ExtentProperties extentProperties = ExtentProperties.INSTANCE;
-	    extentProperties.setReportPath("Reporting/CucumberReports/reportB.html");
 	    
 		try{
 			
