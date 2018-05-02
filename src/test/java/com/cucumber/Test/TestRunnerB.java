@@ -1,3 +1,10 @@
+/**
+ * Core Framework
+ * Author : Deepak Tiwari
+ * Creation Date : 27 Apr 2018
+ * Modified Date : 
+ * Modified By : 
+ */
 package com.cucumber.Test;
 
 import java.lang.reflect.InvocationTargetException;
@@ -7,6 +14,8 @@ import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+
+import com.cucumber.listener.Reporter;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
@@ -19,7 +28,7 @@ glue={"com.cucumber.TestSteps"},
 tags = {},
 //dryRun = true,
 plugin = { "html:Reporting/CucumberReports/CucumberReportRunnerB",
-      "com.cucumber.listener.ExtentCucumberFormatter:Reporting/CucumberReports/ExtentReportB.html"}
+		"com.cucumber.listener.ExtentCucumberFormatter:Reporting/CucumberReports/TestRunnerB.html"}
 )
 
 
@@ -31,7 +40,7 @@ plugin = { "html:Reporting/CucumberReports/CucumberReportRunnerB",
 	public static void InitializeTest( String BrowserName) throws InvocationTargetException, IllegalAccessException{
 		
 		logger.info("Inside RunnerB class");
-	    
+		
 		try{
 			
 			DriverManager.setDriver(BrowserName);
@@ -46,6 +55,7 @@ plugin = { "html:Reporting/CucumberReports/CucumberReportRunnerB",
 	    public void afterMethod() {
 	    	try {
 	    		DriverManager.quitDriver();
+	    		Reporter.getExtentReport().flush();
 	    	}catch(Exception e) {
 	    		
 	    		logger.error("An error occured quitting driver. Check the logs below");

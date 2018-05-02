@@ -1,5 +1,7 @@
 package com.main.test;
 
+import java.io.IOException;
+
 import org.apache.log4j.PropertyConfigurator;
 import org.junit.After;
 import org.junit.Before;
@@ -8,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import corepackage.RunWithTestNG;
+import frameworkcore.excelReader.InputDataReaderImpl;
 
 public class ExecuteTest {
 	
@@ -15,7 +18,7 @@ public class ExecuteTest {
 	static String log4jConfPath = "src/main/resources/propertyFiles/Log4j.properties";
 	
 	@Test
-	public void StartTestExecution() {
+	public void StartTestExecution() throws IOException {
 
 		RunWithTestNG.ExecuteTests();
 		
@@ -23,9 +26,10 @@ public class ExecuteTest {
 	
 	
 	@Before
-	public void Initialize() {
+	public void Initialize() throws IOException {
 		PropertyConfigurator.configure(log4jConfPath);
-		logger.info("Logger started");
+		logger.info("Logging started");
+		InputDataReaderImpl.ReadExcelInputData();
 	}
 	
 	@After

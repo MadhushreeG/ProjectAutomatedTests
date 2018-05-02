@@ -1,5 +1,9 @@
 /**
- * This project is using Spring 
+ * Core Framework
+ * Author : Deepak Tiwari
+ * Creation Date : 27 Apr 2018
+ * Modified Date : 
+ * Modified By : 
  */
 package com.cucumber.TestSteps;
 
@@ -8,43 +12,44 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.cucumber.listener.Reporter;
+
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import frameworkcore.ReportingClass.Reporting;
 import frameworkcore.webdriverFactory.DriverManager;
 
-import com.cucumber.Test.TestRunnerA;
-import com.cucumber.listener.Reporter;
-/**
- * @author dtiwa1
- *
- */
 public class CucumberHooks {
 	
 	private static Logger logger = LoggerFactory.getLogger(CucumberHooks.class);
+	String featureName="";
 	
 	@Before("@Feature")
-	public void BeforeStartOfFeature() {
-		logger.info("Before Start running Feature ");
+	public void BeforeStartOfFeature(Scenario scenario) {
+		String rawFeatureName = scenario.getId().split(";")[0].replace("-"," ");
+	    featureName = featureName + rawFeatureName.substring(0, 1).toUpperCase() + rawFeatureName.substring(1);
+		logger.info("Start running Feature ##########  " + 	featureName + "   ##########");
 	}
 	
 	@Before
 	public void BeforeStartOfScenarioHook(Scenario scenario) throws ClassNotFoundException {
-		 logger.info("Inside Hooks Before. Before Running Scenario " + scenario.getName());
+		logger.info("Starting execution of Scenario ##########" + scenario.getName() + "   ##########");
 	}
 		
 	@After
 	public void AfterEndOfScenarioHook(Scenario scenario) throws IOException{
-		logger.info("Inside Hooks After. After Running Scenario, Scenario status is " + scenario.getStatus());
-		//Reporter.addScreenCaptureFromPath(Reporting.CaptureScreenShot(DriverManager.getDriver()));
-		//Reporting.FlushReport();
+		if(scenario.isFailed())
+			Reporter.addScreenCaptureFromPath(Reporting.CaptureScreenShot(DriverManager.getDriver()));
+			
+			logger.info("Scenario execution done, Scenario status is #####  " + scenario.getStatus() + "   #####");
+			Reporter.getExtentReport().flush();
 	}
 	
 		
 	@After("@Feature")
 	public void AfterEndOfFeature(){
-		logger.info("After End running Feature");
+		logger.info("End running Feature ##########  " + 	featureName + "   ##########");
 	}
 
 }

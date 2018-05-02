@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="2" name="AutomationSuite" parallel="tests">
-  <test thread-count="2" name="Test7" parallel="tests">
-    <parameter name="BrowserName" value="Firefox"/>
-    <parameter name="Port" value="4723"/>
-    <parameter name="deviceName" value="192.168.28.101"/>
-    <parameter name="bootstrapport" value="4724"/>
-    <classes>
-      <class name="com.cucumber.Test.TestRunnerB"/>
-    </classes>
-  </test> <!-- Test7 -->
-  <test thread-count="2" name="Test6" parallel="tests">
+  <test thread-count="2" name="Test1" parallel="tests">
     <parameter name="BrowserName" value="Chrome"/>
-    <parameter name="Port" value="4723"/>
-    <parameter name="deviceName" value="192.168.28.101"/>
-    <parameter name="bootstrapport" value="4724"/>
+    <parameter name="platformtype" value="Linux"/>
+    <parameter name="IncognitoMode" value="True"/>
+    <parameter name="LogLevel" value="DEBUG"/>
     <classes>
       <class name="com.cucumber.Test.TestRunnerA"/>
     </classes>
-  </test> <!-- Test6 -->
+  </test> <!-- Test1 -->
 </suite> <!-- AutomationSuite -->
