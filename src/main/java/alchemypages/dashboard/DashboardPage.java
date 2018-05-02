@@ -5,7 +5,7 @@
  * Modified Date : 
  * Modified By : 
  */
-package alchemypages;
+package alchemypages.dashboard;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

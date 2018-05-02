@@ -1,6 +1,7 @@
 @Feature
 Feature: Alchemy main page validations
 
+@runthis
 Scenario Outline: This scenario validates the Login functionality
 	Given open ApplicationUrl
 	When Login to Website with "<UserName>" and "<Password>"

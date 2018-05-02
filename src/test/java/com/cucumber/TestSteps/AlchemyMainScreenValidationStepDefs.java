@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import com.cucumber.listener.Reporter;
 import alchemypages.LoginPage;
-import alchemypages.DashboardPage;
+import alchemypages.dashboard.DashboardPage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

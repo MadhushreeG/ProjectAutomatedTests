@@ -5,7 +5,7 @@
  * Modified Date : 
  * Modified By : 
  */
-package alchemypages;
+package alchemypages.initiatives;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -72,5 +72,7 @@ public class CreateInitiativePage {
 	public static WebElement Btn_SubmitInitiative;
 	
 	/*------------------------------Method for Create Initiative Page -----------------------------------*/
+	
+	
 
 }
